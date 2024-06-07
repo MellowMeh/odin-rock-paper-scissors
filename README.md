@@ -15,3 +15,15 @@ CALL computer move function
 
 
 //Get user choice: rock, paper, or scissors
+GET user choice
+    DISPLAY prompt for user to input rock, paper, or scissors
+        IF user input is "rock" THEN print "rock" to console
+        IF user input is "paper" THEN print "paper" to console
+        IF user input is "scissors" THEN print "scissors" to console
+        IF user input is anything else THEN 
+            REPEAT
+                Display message "Error: Please type into the box "rock", "paper", or "scissors"
+                DISPLAY prompt for user to input rock, paper, or scissors
+            UNTIL user has in put "rock", "paper", or "scissor" 
+
+CALL user choice function

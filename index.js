@@ -4,8 +4,9 @@
 
 
 ////Have computer randomly select rock, paper, or scissors
+let computerDecision
 let getComputerChoice = (rockPaperOrScissors) => {
-    let computerDecision = Math.random();
+    computerDecision = Math.random();
         console.log(computerDecision);
         if (computerDecision < 0.33) {
             console.log("Rock");

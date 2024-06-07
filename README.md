@@ -4,7 +4,7 @@ This project is completed as part of "The Odin Project" online web development c
 
 Pseudocode
 
-//Have computer randomly select rock, paper, or scissors
+//Get computer random choice: rock, paper, or scissors
 GET computer move: rock, paper, or scissors
     CALCULATE a random number between 0 and 1
         IF number is less than 0.33 THEN print "rock" to console
@@ -14,4 +14,4 @@ GET computer move: rock, paper, or scissors
 CALL computer move function
 
 
-//
+//Get user choice: rock, paper, or scissors

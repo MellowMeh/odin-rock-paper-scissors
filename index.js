@@ -1,3 +1,8 @@
+//Declare players score variables (global scope)
+    let humanScore = 0;
+    let computerScore = 0;
+
+
 ////Have computer randomly select rock, paper, or scissors
 let getComputerChoice = (rockPaperOrScissors) => {
     let computerDecision = Math.random();

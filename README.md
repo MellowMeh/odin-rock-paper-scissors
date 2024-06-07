@@ -3,6 +3,10 @@
 This project is completed as part of "The Odin Project" online web development curriculum.
 
 Pseudocode
+//Declare players score variables (global scope)
+SET human score variable = 0
+SET computer score variable = 0
+
 
 //Get computer random choice: rock, paper, or scissors
 GET computer move: rock, paper, or scissors

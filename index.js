@@ -9,10 +9,13 @@ let getComputerChoice = (rockPaperOrScissors) => {
     computerDecision = Math.random();
         console.log(computerDecision);
         if (computerDecision < 0.33) {
+            computerDecision = "rock";
             console.log("Rock");
         } else if (computerDecision > 0.33 && computerDecision < 0.66) {
+            computerDecision = "paper";
             console.log("Paper");
         } else {
+            computerDecision = "scissors";
             console.log("Scissors");
         }
 }

@@ -10,13 +10,13 @@ let getComputerChoice = (rockPaperOrScissors) => {
         console.log(computerDecision);
         if (computerDecision < 0.33) {
             computerDecision = "rock";
-            console.log("Rock");
+            console.log("Computer Choice: 'Rock'");
         } else if (computerDecision > 0.33 && computerDecision < 0.66) {
             computerDecision = "paper";
-            console.log("Paper");
+            console.log("Computer Choice: 'Paper'");
         } else {
             computerDecision = "scissors";
-            console.log("Scissors");
+            console.log("Computer Choice: 'Scissors'");
         }
 }
 

@@ -46,3 +46,21 @@ let getUserChoice = (rockPaperOrScissors) => {
 }
 
 getUserChoice();
+
+//Play a round - a function takes arguments of the human choice and the computer choice. If...else statements are used to decide victory or defeat alert and which score variable is incremented.
+let playRound = (humanChoice, computerChoice) => {
+    if (userInput === "rock" && computerDecision === "rock") {
+        console.log("It's a draw! Play again?");
+    } else if (userInput === "rock" && computerDecision === "paper") {
+        console.log("Oh no! You lost that round. Play again?");
+        ++computerScore;
+    } else if (userInput === "rock" && computerDecision === "scissors") {
+        console.log("Hooray! You won that round. Play again?");
+        ++humanScore;
+    } else {
+        alert("need more code");
+    }
+    console.log(humanScore, computerScore)
+}
+
+playRound();

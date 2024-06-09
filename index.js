@@ -84,6 +84,7 @@ let playRound = (humanChoice, computerChoice) => {
     console.log(humanScore, computerScore)
 }
 
+//Play five rounds of play. When the user or the computer reaches a score of 5, the game ends, the prompt to insert an answer disappears, and a final message is displayed. 
 let playGame = (fiveRoundsOfPlay) => {
     playRound();
     do {
@@ -91,6 +92,13 @@ let playGame = (fiveRoundsOfPlay) => {
         getUserChoice();
         playRound();
     } while (humanScore < 5 && computerScore < 5);
+    if (humanScore > 4) {
+        console.log("Congratulations! You have won! If you want to play again, refresh the web page.");
+    } else if (computerScore = 5) {
+        console.log("The computer got the better of you this time. The computer won. If you want to play again, refresh the web page.")
+    } else {
+        console.log("________________")
+    }
 }
 
 playGame();

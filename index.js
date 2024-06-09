@@ -57,8 +57,16 @@ let playRound = (humanChoice, computerChoice) => {
     } else if (userInput === "rock" && computerDecision === "scissors") {
         console.log("Hooray! You won that round. Play again?");
         ++humanScore;
+    } else if (userInput === "paper" && computerDecision === "rock") {
+        console.log("Hooray! You won that round. Play again?");
+        ++humanScore;
+    } else if (userInput === "paper" && computerDecision === "paper") {
+        console.log("It's a draw! Play again?");
+    } else if (userInput === "paper" && computerDecision === "scissors") {
+        console.log("Oh no! You lost that round. Play again?")
+        ++computerScore;
     } else {
-        alert("need more code");
+        console.log("need more code");
     }
     console.log(humanScore, computerScore)
 }

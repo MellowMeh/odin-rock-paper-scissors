@@ -1,6 +1,6 @@
 //Declare players score variables (global scope)
-    let humanScore = 0;
-    let computerScore = 0;
+let humanScore = 0;
+let computerScore = 0;
 
 
 ////Have computer randomly select rock, paper, or scissors
@@ -84,4 +84,13 @@ let playRound = (humanChoice, computerChoice) => {
     console.log(humanScore, computerScore)
 }
 
-playRound();
+let playGame = (fiveRoundsOfPlay) => {
+    playRound();
+    do {
+        getComputerChoice();
+        getUserChoice();
+        playRound();
+    } while (humanScore < 5 && computerScore < 5);
+}
+
+playGame();

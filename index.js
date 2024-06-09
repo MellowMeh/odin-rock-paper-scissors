@@ -65,8 +65,16 @@ let playRound = (humanChoice, computerChoice) => {
     } else if (userInput.toLowerCase() === "paper" && computerDecision === "scissors") {
         console.log("Oh no! You lost that round. Play again?")
         ++computerScore;
+    } else if (userInput.toLowerCase() === "scissors" && computerDecision === "rock") {
+        console.log("Oh no! You lost that round. Play again?");
+        ++computerScore;
+    } else if (userInput.toLowerCase() === "scissors" && computerDecision === "paper") {
+        console.log("Hooray! You won that round. Play again?");
+        ++humanScore;
+    } else if (userInput.toLowerCase() === "scissors" && computerDecision === "scissors") {
+        console.log("It's a draw! Play again?");
     } else {
-        console.log("need more code");
+        console.log("Error: answer not recognized");
     }
     console.log(humanScore, computerScore)
 }

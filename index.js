@@ -26,6 +26,7 @@ const scissorsButton = document.querySelector('#buttonScissors')
 
 //Get user decision: rock, paper, or scissors. If invalid value is entered alert error and loop prompt and check sequence.
 let container = document.querySelector('#container');
+let userInput;
 
 container.addEventListener('click', (event) => {
     let target = event.target;

@@ -18,6 +18,12 @@ let getComputerChoice = (rockPaperOrScissors) => {
 
 getComputerChoice();
 
+
+let rockButton = document.querySelector('#buttonRock');
+let paperButton = document.querySelector('#buttonPaper')
+let scissorsButton = document.querySelector('#buttonScissors')
+
+
 //Get user decision: rock, paper, or scissors. If invalid value is entered alert error and loop prompt and check sequence.
 let userInput;
 let verdict;
@@ -84,6 +90,7 @@ let playRound = (humanChoice, computerChoice) => {
     console.log(humanScore, computerScore)
 }
 
+/*
 //Play five rounds of play. When the user or the computer reaches a score of 5, the game ends, the prompt to insert an answer disappears, and a final message is displayed. 
 let playGame = (fiveRoundsOfPlay) => {
     playRound();
@@ -100,5 +107,6 @@ let playGame = (fiveRoundsOfPlay) => {
         console.log("________________")
     }
 }
+*/
 
 playGame();

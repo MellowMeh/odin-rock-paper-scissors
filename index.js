@@ -19,13 +19,35 @@ let getComputerChoice = (rockPaperOrScissors) => {
 getComputerChoice();
 
 
-let rockButton = document.querySelector('#buttonRock');
-let paperButton = document.querySelector('#buttonPaper')
-let scissorsButton = document.querySelector('#buttonScissors')
+const rockButton = document.querySelector('#buttonRock');
+const paperButton = document.querySelector('#buttonPaper')
+const scissorsButton = document.querySelector('#buttonScissors')
 
 
 //Get user decision: rock, paper, or scissors. If invalid value is entered alert error and loop prompt and check sequence.
-let userInput;
+let container = document.querySelector('#container');
+
+container.addEventListener('click', (event) => {
+    let target = event.target;
+
+    switch(target.id) {
+        case 'buttonRock':
+            console.log("User Choice: 'Rock'");
+            userInput = 'rock';
+            break;
+        case 'buttonPaper':
+            console.log("User Choice: 'Paper'");
+            userInput = 'paper';
+            break;
+        case 'buttonScissors':
+            console.log("User Choice: 'Scissors'");
+            userInput = 'scissors';
+            break;
+    }
+})
+
+
+/*let userInput;
 let verdict;
 let getUserChoice = (rockPaperOrScissors) => {
     do {
@@ -47,7 +69,9 @@ let getUserChoice = (rockPaperOrScissors) => {
     while (verdict === "fail");
 }
 
+
 getUserChoice();
+
 
 //Play a round - a function takes arguments of the human choice and the computer choice. If...else statements are used to decide victory or defeat alert and which score variable is incremented.
 let playRound = (humanChoice, computerChoice) => {
@@ -90,7 +114,7 @@ let playRound = (humanChoice, computerChoice) => {
     console.log(humanScore, computerScore)
 }
 
-/*
+
 //Play five rounds of play. When the user or the computer reaches a score of 5, the game ends, the prompt to insert an answer disappears, and a final message is displayed. 
 let playGame = (fiveRoundsOfPlay) => {
     playRound();
@@ -107,6 +131,7 @@ let playGame = (fiveRoundsOfPlay) => {
         console.log("________________")
     }
 }
-*/
+
 
 playGame();
+*/

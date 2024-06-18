@@ -67,21 +67,18 @@ let getUserChoice = () => {
                 case 'rock':
                     //display: tie
                     currentMessage = "tie";
-                    displayScore();
                     console.log("rock,rock");
                     break;
                 case 'paper':
                     //display: loss
                     currentMessage = "loss";
                     computerScore++;
-                    displayScore();
                     console.log("rock,paper");
                     break;
                 case 'scissors':
                     //display: win
                     currentMessage = "win";
                     humanScore++;
-                    displayScore();
                     console.log("rock, scissors");
                     break;
             }
@@ -93,20 +90,17 @@ let getUserChoice = () => {
                     //display: win
                     currentMessage = "win";
                     humanScore++;
-                    displayScore();
                     console.log("paper,rock");
                     break;
                 case 'paper':
                     //display: tie
                     currentMessage = "tie";
-                    displayScore();
                     console.log("paper,paper");
                     break;
                 case 'scissors':
                     //display: loss
                     currentMessage = "loss";
                     computerScore++;
-                    displayScore();
                     console.log("paper, scissors");
                     break;
             }
@@ -118,20 +112,17 @@ let getUserChoice = () => {
                     //display: loss
                     currentMessage = "loss";
                     computerScore++;
-                    displayScore();
                     console.log("scissors,rock");
                     break;
                 case 'paper':
                     //display: win
                     currentMessage = "win";
                     humanScore++;
-                    displayScore();
                     console.log("scissors,paper");
                     break;
                 case 'scissors':
                     //display: tie
                     currentMessage = "tie";
-                    displayScore();
                     console.log("scissors, scissors");
                     break;
             }
@@ -144,6 +135,7 @@ let playRound = (event) => {
         getComputerChoice();
         getUserChoice();
         displayMessage();
+        displayScore();
         container.addEventListener('mousedown', removeScore);
     }
     if (humanScore > 4) {

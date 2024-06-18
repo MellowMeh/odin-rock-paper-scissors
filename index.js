@@ -90,11 +90,8 @@ container.addEventListener('click', (event) => {
             }
             break;
     }
-
-
-    console.log("User Choice: '" + userInput +"'");
-    console.log("Computer Choice: '" + computerDecision + "'")
-
+    userInput = "";
+    computerDecision = "";
 });
 
 //Resolution - when user or computer achieves 5 points, victory or loss message displays and user may choose to play again

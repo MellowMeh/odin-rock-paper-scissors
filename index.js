@@ -51,18 +51,15 @@ let displayLoss = () => {
 }
 
 let displayScore = () => {
-    const scoreTextHuman = document.createElement('span');
-    const scoreTextComputer = document.createElement('span');
-    humanLine.appendChild(scoreTextHuman);
+    const scoreTextHuman = document.createElement('p');
+    const scoreTextComputer = document.createElement('p');
+    scoreCard.appendChild(scoreTextHuman);
         scoreTextHuman.textContent = ("Your score: " + humanScore);
-    computerLine.appendChild(scoreTextComputer);
+    scoreCard.appendChild(scoreTextComputer);
         scoreTextComputer.textContent = ("Computer score: " + computerScore);
     }
 
 let playRound = (event) => {
-    container.removeChild(rockButton);
-    container.removeChild(paperButton);
-    container.removeChild(scissorsButton);
     let target = event.target;
 
     switch(target.id) {

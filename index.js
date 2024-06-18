@@ -36,13 +36,17 @@ container.addEventListener('click', (event) => {
             userInput = 'rock';
             switch(computerDecision) {
                 case 'rock':
+                    //display: tie 
                     console.log("rock,rock");
-                    //Need to add DOM manipulation to raise or lower scores for each computerDecision case
                     break;
                 case 'paper':
+                    //display: loss
+                    computerScore++;
                     console.log("rock,paper");
                     break;
                 case 'scissors':
+                    //display: win
+                    humanScore++;
                     console.log("rock, scissors");
                     break;
             }
@@ -51,13 +55,17 @@ container.addEventListener('click', (event) => {
             userInput = 'paper';
             switch(computerDecision) {
                 case 'rock':
+                    //display: win
+                    humanScore++;
                     console.log("paper,rock");
-                    //Need to add DOM manipulation to raise or lower scores for each computerDecision case
                     break;
                 case 'paper':
+                    //display: tie
                     console.log("paper,paper");
                     break;
                 case 'scissors':
+                    //display: loss
+                    computerScore++;
                     console.log("paper, scissors");
                     break;
             }
@@ -66,13 +74,17 @@ container.addEventListener('click', (event) => {
             userInput = 'scissors';
             switch(computerDecision) {
                 case 'rock':
+                    //display: loss
+                    computerScore++;
                     console.log("scissors,rock");
-                    //Need to add DOM manipulation to raise or lower scores for each computerDecision case
                     break;
                 case 'paper':
+                    //display: win
+                    humanScore++;
                     console.log("scissors,paper");
                     break;
                 case 'scissors':
+                    //display: tie
                     console.log("scissors, scissors");
                     break;
             }

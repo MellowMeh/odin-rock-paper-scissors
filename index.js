@@ -18,13 +18,13 @@ let getComputerChoice = (rockPaperOrScissors) => {
 
 getComputerChoice();
 
-
+//Assign HTML elements to JS variables
 const rockButton = document.querySelector('#buttonRock');
 const paperButton = document.querySelector('#buttonPaper')
 const scissorsButton = document.querySelector('#buttonScissors')
 
 
-//Get user decision: rock, paper, or scissors. 
+//When user clicks rock, paper, or scissor a round is played - scores are tracked on screen
 let container = document.querySelector('#container');
 let userInput;
 
@@ -84,6 +84,12 @@ container.addEventListener('click', (event) => {
     console.log("Computer Choice: '" + computerDecision + "'")
 
 });
+
+//Resolution - when user or computer achieves 5 points, victory or loss message displays and user may choose to play again
+
+
+
+
 
 /*
     let playRound = (userInput, computerDecision) => {

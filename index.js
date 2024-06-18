@@ -25,6 +25,7 @@ const scissorsButton = document.querySelector('#buttonScissors')
 
 
 //When user clicks rock, paper, or scissor a round is played - scores are tracked on screen
+let body = document.querySelector('#body');
 let container = document.querySelector('#container');
 let scoreCard = document.querySelector('#scoreCard');
 let humanLine = document.querySelector('#humanLine');
@@ -59,6 +60,9 @@ let displayScore = () => {
     }
 
 let playRound = (event) => {
+    container.removeChild(rockButton);
+    container.removeChild(paperButton);
+    container.removeChild(scissorsButton);
     let target = event.target;
 
     switch(target.id) {
@@ -138,6 +142,12 @@ let playRound = (event) => {
             }
             break;
     }
+    const resetButton = document.createElement('button');
+    resetButton.setAttribute("id", "resetButton")
+    resetButton.style.background = "blue";
+    resetButton.style.color = "white";
+    resetButton.textContent = "Play another round!";
+    scoreCard.appendChild(resetButton);
 };
 
 container.addEventListener('click', playRound);

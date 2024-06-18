@@ -28,8 +28,6 @@ const scissorsButton = document.querySelector('#buttonScissors')
 let body = document.querySelector('#body');
 let container = document.querySelector('#container');
 let scoreCard = document.querySelector('#scoreCard');
-let humanLine = document.querySelector('#humanLine');
-let computerLine = document.querySelector('#computerLine');
 let userInput;
 
 let displayTie = () => {

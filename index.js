@@ -47,13 +47,13 @@ let removeScore = () => {
 let displayMessage = () => {
     if (currentMessage === "tie") {
         scoreCard.appendChild(message);
-            message.textContent = "It is a tie"
+            message.textContent = "It is a tie."
     } else if (currentMessage === "win") {
         scoreCard.appendChild(message);
-            message.textContent = "You won"
+            message.textContent = "Congratulations! You won that round."
     } else {
         scoreCard.appendChild(message);
-            message.textContent = "You lost"
+            message.textContent = "Oh no! It seems you lost that one."
     }
 }
 

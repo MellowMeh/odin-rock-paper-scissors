@@ -27,6 +27,8 @@ const scissorsButton = document.querySelector('#buttonScissors')
 //When user clicks rock, paper, or scissor a round is played - scores are tracked on screen
 let container = document.querySelector('#container');
 let scoreCard = document.querySelector('#scoreCard');
+let humanLine = document.querySelector('#humanLine');
+let computerLine = document.querySelector('#computerLine');
 let userInput;
 
 let displayTie = () => {
@@ -47,6 +49,15 @@ let displayLoss = () => {
         lossText.textContent = "Oh no, the computer won that round."
 }
 
+let displayScore = () => {
+    const scoreTextHuman = document.createElement('span');
+    const scoreTextComputer = document.createElement('span');
+    humanLine.appendChild(scoreTextHuman);
+        scoreTextHuman.textContent = ("Your score: " + humanScore);
+    computerLine.appendChild(scoreTextComputer);
+        scoreTextComputer.textContent = ("Computer score: " + computerScore);
+    }
+
 container.addEventListener('click', (event) => {
     let target = event.target;
 
@@ -57,18 +68,21 @@ container.addEventListener('click', (event) => {
                 case 'rock':
                     //display: tie
                     displayTie(); 
+                    displayScore();
                     console.log("rock,rock");
                     break;
                 case 'paper':
                     //display: loss
                     displayLoss();
                     computerScore++;
+                    displayScore();
                     console.log("rock,paper");
                     break;
                 case 'scissors':
                     //display: win
                     displayWin();
                     humanScore++;
+                    displayScore();
                     console.log("rock, scissors");
                     break;
             }
@@ -80,17 +94,20 @@ container.addEventListener('click', (event) => {
                     //display: win
                     displayWin();
                     humanScore++;
+                    displayScore();
                     console.log("paper,rock");
                     break;
                 case 'paper':
                     //display: tie
                     displayTie();
+                    displayScore();
                     console.log("paper,paper");
                     break;
                 case 'scissors':
                     //display: loss
                     displayLoss();
                     computerScore++;
+                    displayScore();
                     console.log("paper, scissors");
                     break;
             }
@@ -102,17 +119,20 @@ container.addEventListener('click', (event) => {
                     //display: loss
                     displayLoss();
                     computerScore++;
+                    displayScore();
                     console.log("scissors,rock");
                     break;
                 case 'paper':
                     //display: win
                     displayWin();
                     humanScore++;
+                    displayScore();
                     console.log("scissors,paper");
                     break;
                 case 'scissors':
                     //display: tie
                     displayTie();
+                    displayScore();
                     console.log("scissors, scissors");
                     break;
             }

@@ -24,7 +24,7 @@ const paperButton = document.querySelector('#buttonPaper')
 const scissorsButton = document.querySelector('#buttonScissors')
 
 
-//Get user decision: rock, paper, or scissors. If invalid value is entered alert error and loop prompt and check sequence.
+//Get user decision: rock, paper, or scissors. 
 let container = document.querySelector('#container');
 let userInput;
 
@@ -33,48 +33,96 @@ container.addEventListener('click', (event) => {
 
     switch(target.id) {
         case 'buttonRock':
-            console.log("User Choice: 'Rock'");
             userInput = 'rock';
+            switch(computerDecision) {
+                case 'rock':
+                    console.log("rock,rock");
+                    //Need to add DOM manipulation to raise or lower scores for each computerDecision case
+                    break;
+                case 'paper':
+                    console.log("rock,paper");
+                    break;
+                case 'scissors':
+                    console.log("rock, scissors");
+                    break;
+            }
             break;
         case 'buttonPaper':
-            console.log("User Choice: 'Paper'");
             userInput = 'paper';
+            switch(computerDecision) {
+                case 'rock':
+                    console.log("paper,rock");
+                    //Need to add DOM manipulation to raise or lower scores for each computerDecision case
+                    break;
+                case 'paper':
+                    console.log("paper,paper");
+                    break;
+                case 'scissors':
+                    console.log("paper, scissors");
+                    break;
+            }
             break;
         case 'buttonScissors':
-            console.log("User Choice: 'Scissors'");
             userInput = 'scissors';
+            switch(computerDecision) {
+                case 'rock':
+                    console.log("scissors,rock");
+                    //Need to add DOM manipulation to raise or lower scores for each computerDecision case
+                    break;
+                case 'paper':
+                    console.log("scissors,paper");
+                    break;
+                case 'scissors':
+                    console.log("scissors, scissors");
+                    break;
+            }
             break;
+    }
+
+
+    console.log("User Choice: '" + userInput +"'");
+    console.log("Computer Choice: '" + computerDecision + "'")
+
+});
+
+/*
+    let playRound = (userInput, computerDecision) => {
+        switch(userInput) {
+            case 'rock':
+                
+                break;
+
+            case 'paper':
+                switch(computerDecision) {
+                    case 'rock':
+                        break;
+                    case 'paper':
+                        break;
+                    case 'scissors':
+                        break;
+                }
+                break;
+
+            case 'scissors':
+                switch(computerDecision) {
+                    case 'rock':
+                        break;
+                    case 'paper':
+                        break;
+                    case 'scissors':
+                        break;
+                }    
+            break;
+        }
     }
 })
 
-
-/*let userInput;
-let verdict;
-let getUserChoice = (rockPaperOrScissors) => {
-    do {
-        userInput = prompt("Let's Play a Game: Type one of the following in the box below: 'Rock', 'Paper', or 'Scissors'")
-        if (userInput.toLowerCase() === "rock") {
-            console.log("User Choice: 'Rock'");
-            verdict = "pass";
-        } else if (userInput.toLowerCase() === "paper"){
-            console.log("User Choice: 'Paper'");
-            verdict = "pass";
-        } else if (userInput.toLowerCase() === "scissors"){
-            console.log("User Choice: 'Scissors'");
-            verdict = "pass";
-        } else {
-            alert("Error: Please type into the box 'Rock', 'Paper', or 'Scissors'");
-            verdict = "fail";
-        }
-    }
-    while (verdict === "fail");
-}
-
-
-getUserChoice();
-
+playRound();
 
 //Play a round - a function takes arguments of the human choice and the computer choice. If...else statements are used to decide victory or defeat alert and which score variable is incremented.
+
+
+
 let playRound = (humanChoice, computerChoice) => {
     if (userInput.toLowerCase() === "rock" && computerDecision === "rock") {
         console.log("Computer Choice: 'Rock'");
@@ -135,4 +183,5 @@ let playGame = (fiveRoundsOfPlay) => {
 
 
 playGame();
+
 */

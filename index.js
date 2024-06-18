@@ -152,6 +152,13 @@ let playRound = (event) => {
 
 container.addEventListener('click', playRound);
 
+let resetScore = () => {
+    scoreCard.removeChild(humanLine);
+    scoreCard.removeChild(computerLine);
+}
+
+scoreCard.addEventListener('click', resetScore);
+
 /*Resolution - when user or computer achieves 5 points, victory or loss message displays and user may choose to play again
 let playGame = (fiveRoundsOfPlay) => {
     playRound();

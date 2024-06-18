@@ -26,7 +26,26 @@ const scissorsButton = document.querySelector('#buttonScissors')
 
 //When user clicks rock, paper, or scissor a round is played - scores are tracked on screen
 let container = document.querySelector('#container');
+let scoreCard = document.querySelector('#scoreCard');
 let userInput;
+
+let displayTie = () => {
+    const tieText = document.createElement('p');
+    scoreCard.appendChild(tieText);
+        tieText.textContent = "It was a tie!"
+}
+
+let displayWin = () => {
+    const winText = document.createElement('p');
+    scoreCard.appendChild(winText);
+        winText.textContent = "Congratulations, you won a point!"
+}
+
+let displayLoss = () => {
+    const lossText = document.createElement('p');
+    scoreCard.appendChild(lossText);
+        lossText.textContent = "Oh no, the computer won that round."
+}
 
 container.addEventListener('click', (event) => {
     let target = event.target;
@@ -36,16 +55,19 @@ container.addEventListener('click', (event) => {
             userInput = 'rock';
             switch(computerDecision) {
                 case 'rock':
-                    //display: tie 
+                    //display: tie
+                    displayTie(); 
                     console.log("rock,rock");
                     break;
                 case 'paper':
                     //display: loss
+                    displayLoss();
                     computerScore++;
                     console.log("rock,paper");
                     break;
                 case 'scissors':
                     //display: win
+                    displayWin();
                     humanScore++;
                     console.log("rock, scissors");
                     break;
@@ -56,15 +78,18 @@ container.addEventListener('click', (event) => {
             switch(computerDecision) {
                 case 'rock':
                     //display: win
+                    displayWin();
                     humanScore++;
                     console.log("paper,rock");
                     break;
                 case 'paper':
                     //display: tie
+                    displayTie();
                     console.log("paper,paper");
                     break;
                 case 'scissors':
                     //display: loss
+                    displayLoss();
                     computerScore++;
                     console.log("paper, scissors");
                     break;
@@ -75,16 +100,19 @@ container.addEventListener('click', (event) => {
             switch(computerDecision) {
                 case 'rock':
                     //display: loss
+                    displayLoss();
                     computerScore++;
                     console.log("scissors,rock");
                     break;
                 case 'paper':
                     //display: win
+                    displayWin();
                     humanScore++;
                     console.log("scissors,paper");
                     break;
                 case 'scissors':
                     //display: tie
+                    displayTie();
                     console.log("scissors, scissors");
                     break;
             }

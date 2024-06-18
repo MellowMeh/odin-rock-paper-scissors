@@ -16,8 +16,6 @@ let getComputerChoice = (rockPaperOrScissors) => {
         }
 }
 
-getComputerChoice();
-
 //Assign HTML elements to JS variables
 const rockButton = document.querySelector('#buttonRock');
 const paperButton = document.querySelector('#buttonPaper')
@@ -57,7 +55,7 @@ let displayScore = () => {
         scoreTextComputer.textContent = ("Computer score: " + computerScore);
     }
 
-let playRound = (event) => {
+let getUserChoice = () => {
     let target = event.target;
 
     switch(target.id) {
@@ -137,22 +135,25 @@ let playRound = (event) => {
             }
             break;
     }
-    const resetButton = document.createElement('button');
-    resetButton.setAttribute("id", "resetButton")
-    resetButton.style.background = "blue";
-    resetButton.style.color = "white";
-    resetButton.textContent = "Play another round!";
-    scoreCard.appendChild(resetButton);
 };
 
+let playRound = (event) => {
+    if (humanScore < 5 && computerScore < 5) {
+        getComputerChoice();
+        getUserChoice();
+    }
+    if (humanScore > 4) {
+        alert("Congratulations! You won!");
+        location.reload()
+    }
+    
+    if (computerScore > 4) {
+        alert("The computer has won.");
+        location.reload()
+    }
+}   
+
 container.addEventListener('click', playRound);
-
-let resetScore = () => {
-    scoreCard.removeChild(humanLine);
-    scoreCard.removeChild(computerLine);
-}
-
-scoreCard.addEventListener('click', resetScore);
 
 /*Resolution - when user or computer achieves 5 points, victory or loss message displays and user may choose to play again
 let playGame = (fiveRoundsOfPlay) => {

@@ -20,40 +20,42 @@ let getComputerChoice = (rockPaperOrScissors) => {
 const rockButton = document.querySelector('#buttonRock');
 const paperButton = document.querySelector('#buttonPaper')
 const scissorsButton = document.querySelector('#buttonScissors')
-
+const scoreTextHuman = document.createElement('p');
+const scoreTextComputer = document.createElement('p');
+const message = document.createElement('p');
 
 //When user clicks rock, paper, or scissor a round is played - scores are tracked on screen
 let body = document.querySelector('#body');
 let container = document.querySelector('#container');
 let scoreCard = document.querySelector('#scoreCard');
 let userInput;
+let currentMessage;
 
-let displayTie = () => {
-    const tieText = document.createElement('p');
-    scoreCard.appendChild(tieText);
-        tieText.textContent = "It was a tie!"
-}
-
-let displayWin = () => {
-    const winText = document.createElement('p');
-    scoreCard.appendChild(winText);
-        winText.textContent = "Congratulations, you won a point!"
-}
-
-let displayLoss = () => {
-    const lossText = document.createElement('p');
-    scoreCard.appendChild(lossText);
-        lossText.textContent = "Oh no, the computer won that round."
-}
-
-let displayScore = () => {
-    const scoreTextHuman = document.createElement('p');
-    const scoreTextComputer = document.createElement('p');
+let displayScore = () => { 
     scoreCard.appendChild(scoreTextHuman);
         scoreTextHuman.textContent = ("Your score: " + humanScore);
     scoreCard.appendChild(scoreTextComputer);
         scoreTextComputer.textContent = ("Computer score: " + computerScore);
     }
+
+let removeScore = () => {
+    scoreCard.removeChild(scoreTextComputer);
+    scoreCard.removeChild(scoreTextHuman);
+    scoreCard.removeChild(message);
+}
+
+let displayMessage = () => {
+    if (currentMessage === "tie") {
+        scoreCard.appendChild(message);
+            message.textContent = "It is a tie"
+    } else if (currentMessage === "win") {
+        scoreCard.appendChild(message);
+            message.textContent = "You won"
+    } else {
+        scoreCard.appendChild(message);
+            message.textContent = "You lost"
+    }
+}
 
 let getUserChoice = () => {
     let target = event.target;
@@ -64,20 +66,20 @@ let getUserChoice = () => {
             switch(computerDecision) {
                 case 'rock':
                     //display: tie
-                    displayTie(); 
+                    currentMessage = "tie";
                     displayScore();
                     console.log("rock,rock");
                     break;
                 case 'paper':
                     //display: loss
-                    displayLoss();
+                    currentMessage = "loss";
                     computerScore++;
                     displayScore();
                     console.log("rock,paper");
                     break;
                 case 'scissors':
                     //display: win
-                    displayWin();
+                    currentMessage = "win";
                     humanScore++;
                     displayScore();
                     console.log("rock, scissors");
@@ -89,20 +91,20 @@ let getUserChoice = () => {
             switch(computerDecision) {
                 case 'rock':
                     //display: win
-                    displayWin();
+                    currentMessage = "win";
                     humanScore++;
                     displayScore();
                     console.log("paper,rock");
                     break;
                 case 'paper':
                     //display: tie
-                    displayTie();
+                    currentMessage = "tie";
                     displayScore();
                     console.log("paper,paper");
                     break;
                 case 'scissors':
                     //display: loss
-                    displayLoss();
+                    currentMessage = "loss";
                     computerScore++;
                     displayScore();
                     console.log("paper, scissors");
@@ -114,21 +116,21 @@ let getUserChoice = () => {
             switch(computerDecision) {
                 case 'rock':
                     //display: loss
-                    displayLoss();
+                    currentMessage = "loss";
                     computerScore++;
                     displayScore();
                     console.log("scissors,rock");
                     break;
                 case 'paper':
                     //display: win
-                    displayWin();
+                    currentMessage = "win";
                     humanScore++;
                     displayScore();
                     console.log("scissors,paper");
                     break;
                 case 'scissors':
                     //display: tie
-                    displayTie();
+                    currentMessage = "tie";
                     displayScore();
                     console.log("scissors, scissors");
                     break;
@@ -141,6 +143,8 @@ let playRound = (event) => {
     if (humanScore < 5 && computerScore < 5) {
         getComputerChoice();
         getUserChoice();
+        displayMessage();
+        container.addEventListener('mousedown', removeScore);
     }
     if (humanScore > 4) {
         alert("Congratulations! You won!");
@@ -153,7 +157,7 @@ let playRound = (event) => {
     }
 }   
 
-container.addEventListener('click', playRound);
+container.addEventListener('mouseup', playRound);
 
 /*Resolution - when user or computer achieves 5 points, victory or loss message displays and user may choose to play again
 let playGame = (fiveRoundsOfPlay) => {

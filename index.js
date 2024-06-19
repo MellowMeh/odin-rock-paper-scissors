@@ -8,7 +8,6 @@ const scoreTextComputer = document.createElement('p');
 const message = document.createElement('p');
 const computerMessage = document.createElement('p');
 const userMessage = document.createElement('p');
-let body = document.querySelector('#body');
 let container = document.querySelector('#container');
 let scoreCard = document.querySelector('#scoreCard');
 let userInput;

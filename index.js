@@ -1,8 +1,8 @@
 let humanScore = 0;
 let computerScore = 0;
-const rockButton = document.querySelector('#buttonRock');
-const paperButton = document.querySelector('#buttonPaper')
-const scissorsButton = document.querySelector('#buttonScissors')
+const rockButton = document.querySelector('#rockButton');
+const paperButton = document.querySelector('#paperButton');
+const scissorsButton = document.querySelector('#scissorsButton');
 const scoreTextHuman = document.createElement('p');
 const scoreTextComputer = document.createElement('p');
 const message = document.createElement('p');
@@ -69,7 +69,7 @@ let getUserChoice = () => {
     let target = event.target;
 
     switch(target.id) {
-        case 'buttonRock':
+        case 'rockButton':
             userInput = 'rock';
             switch(computerDecision) {
                 case 'rock':
@@ -85,7 +85,7 @@ let getUserChoice = () => {
                     break;
             }
             break;
-        case 'buttonPaper':
+        case 'paperButton':
             userInput = 'paper';
             switch(computerDecision) {
                 case 'rock':
@@ -101,7 +101,7 @@ let getUserChoice = () => {
                     break;
             }
             break;
-        case 'buttonScissors':
+        case 'scissorsButton':
             userInput = 'scissors';
             switch(computerDecision) {
                 case 'rock':

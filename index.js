@@ -1,11 +1,21 @@
-//Declare players score variables (global scope)
 let humanScore = 0;
 let computerScore = 0;
+const rockButton = document.querySelector('#buttonRock');
+const paperButton = document.querySelector('#buttonPaper')
+const scissorsButton = document.querySelector('#buttonScissors')
+const scoreTextHuman = document.createElement('p');
+const scoreTextComputer = document.createElement('p');
+const message = document.createElement('p');
+const computerMessage = document.createElement('p');
+const userMessage = document.createElement('p');
+let body = document.querySelector('#body');
+let container = document.querySelector('#container');
+let scoreCard = document.querySelector('#scoreCard');
+let userInput;
+let currentMessage;
+let computerDecision;
 
-
-////Have computer randomly select rock, paper, or scissors
-let computerDecision
-let getComputerChoice = (rockPaperOrScissors) => {
+let getComputerChoice = () => {
     computerDecision = Math.random();
         if (computerDecision < 0.33) {
             computerDecision = "rock";
@@ -16,31 +26,14 @@ let getComputerChoice = (rockPaperOrScissors) => {
         }
 }
 
-//Assign HTML elements to JS variables
-const rockButton = document.querySelector('#buttonRock');
-const paperButton = document.querySelector('#buttonPaper')
-const scissorsButton = document.querySelector('#buttonScissors')
-const scoreTextHuman = document.createElement('p');
-const scoreTextComputer = document.createElement('p');
-const message = document.createElement('p');
-const computerMessage = document.createElement('p');
-const userMessage = document.createElement('p');
-
-//When user clicks rock, paper, or scissor a round is played - scores are tracked on screen
-let body = document.querySelector('#body');
-let container = document.querySelector('#container');
-let scoreCard = document.querySelector('#scoreCard');
-let userInput;
-let currentMessage;
-
 let displayScore = () => { 
     scoreCard.appendChild(scoreTextHuman);
         scoreTextHuman.textContent = ("Your score: " + humanScore);
     scoreCard.appendChild(scoreTextComputer);
         scoreTextComputer.textContent = ("Computer score: " + computerScore);
-    }
+}
 
-let removeScore = () => {
+let removeScoreAndMessages = () => {
     scoreCard.removeChild(scoreTextComputer);
     scoreCard.removeChild(scoreTextHuman);
     scoreCard.removeChild(message);
@@ -134,13 +127,12 @@ let playRound = (event) => {
         getUserChoice();
         displayMessage();
         displayScore();
-        container.addEventListener('mousedown', removeScore);
+        container.addEventListener('mousedown', removeScoreAndMessages);
     }
     if (humanScore > 4) {
         alert("Congratulations! You won!");
         location.reload()
     }
-    
     if (computerScore > 4) {
         alert("The computer has won.");
         location.reload()
@@ -148,25 +140,3 @@ let playRound = (event) => {
 }   
 
 container.addEventListener('mouseup', playRound);
-
-/*Resolution - when user or computer achieves 5 points, victory or loss message displays and user may choose to play again
-let playGame = (fiveRoundsOfPlay) => {
-    playRound();
-    do {
-        getComputerChoice();
-        getUserChoice();
-        playRound();
-    } while (humanScore < 5 && computerScore < 5);
-    if (humanScore > 4) {
-        console.log("Congratulations! You have won! If you want to play again, refresh the web page.");
-    } else if (computerScore = 5) {
-        console.log("The computer got the better of you this time. The computer won. If you want to play again, refresh the web page.")
-    } else {
-        console.log("________________")
-    }
-}
-
-
-playGame();
-*/
-

@@ -23,6 +23,8 @@ const scissorsButton = document.querySelector('#buttonScissors')
 const scoreTextHuman = document.createElement('p');
 const scoreTextComputer = document.createElement('p');
 const message = document.createElement('p');
+const computerMessage = document.createElement('p');
+const userMessage = document.createElement('p');
 
 //When user clicks rock, paper, or scissor a round is played - scores are tracked on screen
 let body = document.querySelector('#body');
@@ -42,18 +44,32 @@ let removeScore = () => {
     scoreCard.removeChild(scoreTextComputer);
     scoreCard.removeChild(scoreTextHuman);
     scoreCard.removeChild(message);
+    scoreCard.removeChild(computerMessage);
+    scoreCard.removeChild(userMessage);
 }
 
 let displayMessage = () => {
     if (currentMessage === "tie") {
         scoreCard.appendChild(message);
             message.textContent = "It is a tie."
+        scoreCard.appendChild(userMessage);
+            userMessage.textContent = "You chose: " + userInput;
+        scoreCard.appendChild(computerMessage);
+            computerMessage.textContent = "The computer chose: " +computerDecision;
     } else if (currentMessage === "win") {
         scoreCard.appendChild(message);
             message.textContent = "Congratulations! You won that round."
-    } else {
+        scoreCard.appendChild(userMessage);
+            userMessage.textContent = "You chose: " + userInput;
+        scoreCard.appendChild(computerMessage);
+            computerMessage.textContent = "The computer chose: " +computerDecision;
+        } else {
         scoreCard.appendChild(message);
             message.textContent = "Oh no! It seems you lost that one."
+        scoreCard.appendChild(userMessage);
+            userMessage.textContent = "You chose: " + userInput;
+        scoreCard.appendChild(computerMessage);
+            computerMessage.textContent = "The computer chose: " +computerDecision;
     }
 }
 
@@ -65,21 +81,15 @@ let getUserChoice = () => {
             userInput = 'rock';
             switch(computerDecision) {
                 case 'rock':
-                    //display: tie
                     currentMessage = "tie";
-                    console.log("rock,rock");
                     break;
                 case 'paper':
-                    //display: loss
                     currentMessage = "loss";
                     computerScore++;
-                    console.log("rock,paper");
                     break;
                 case 'scissors':
-                    //display: win
                     currentMessage = "win";
                     humanScore++;
-                    console.log("rock, scissors");
                     break;
             }
             break;
@@ -87,21 +97,15 @@ let getUserChoice = () => {
             userInput = 'paper';
             switch(computerDecision) {
                 case 'rock':
-                    //display: win
                     currentMessage = "win";
                     humanScore++;
-                    console.log("paper,rock");
                     break;
                 case 'paper':
-                    //display: tie
                     currentMessage = "tie";
-                    console.log("paper,paper");
                     break;
                 case 'scissors':
-                    //display: loss
                     currentMessage = "loss";
                     computerScore++;
-                    console.log("paper, scissors");
                     break;
             }
             break;
@@ -109,21 +113,15 @@ let getUserChoice = () => {
             userInput = 'scissors';
             switch(computerDecision) {
                 case 'rock':
-                    //display: loss
                     currentMessage = "loss";
                     computerScore++;
-                    console.log("scissors,rock");
                     break;
                 case 'paper':
-                    //display: win
                     currentMessage = "win";
                     humanScore++;
-                    console.log("scissors,paper");
                     break;
                 case 'scissors':
-                    //display: tie
                     currentMessage = "tie";
-                    console.log("scissors, scissors");
                     break;
             }
             break;
